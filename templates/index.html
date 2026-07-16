@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Unit Converter</title>
+
+    <!-- a link to the Font Awesome library for icons -->
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> 
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+   
+</head>
+
+<body data-from="{{ from_unit }}" data-to="{{ to_unit }}">
+
+    <div class="container">
+        <!-- a button for about page -->
+        <a href="{{ url_for('about') }}" class="about-btn">
+           About
+        </a>
+        <!-- Heading -->
+        <h1>Universal Unit Converter</h1>
+        <p class="subtitle">
+            Convert different units quickly and accurately.
+        </p>
+
+        <!-- Conversion Form -->
+        <form method="POST">
+
+            <!-- Category -->
+            <label>Select Category</label>
+
+            <select name="category" id="category">
+
+                <option value="Length" {% if category == "Length" %}selected{% endif %}>Length</option>
+                <option value="Weight" {% if category == "Weight" %}selected{% endif %}>Weight</option>
+                <option value="Temperature" {% if category == "Temperature" %}selected{% endif %}>Temperature</option>
+                <option value="Speed" {% if category == "Speed" %}selected{% endif %}>Speed</option>
+                <option value="Time" {% if category == "Time" %}selected{% endif %}>Time</option>
+                <option value="Area" {% if category == "Area" %}selected{% endif %}>Area</option>
+                <option value="Volume" {% if category == "Volume" %}selected{% endif %}>Volume</option>
+
+            </select>
+
+    <div class="converter-row">
+
+        <div class="unit-box">
+            <label>From</label>
+            <select name="from_unit" id="from_unit"></select>
+        </div>
+
+        <div class="swap-container">
+            <button type="button" id="swap" class="swap-btn">
+               <i class="fa-solid fa-right-left"></i>
+            </button>
+        </div>
+
+        <div class="unit-box">
+           <label>To</label>
+           <select name="to_unit" id="to_unit"></select>
+        </div>
+
+    </div>
+
+            <!-- Value -->
+            <label>Enter Value</label>
+
+            <input type="number" step="any" name="value" value="{{ value }}" required >
+
+            <!-- Buttons -->
+            <div class="buttons">
+
+                <button type="submit">
+                    Convert
+                </button>
+
+                <button type="reset">
+                    Reset
+                </button>
+
+            </div>
+
+        </form>
+
+        <!-- Result -->
+        {% if result is not none %}
+
+        <div class="result">
+
+            <h2>Result</h2>
+
+            <p>{{ result }}</p>
+
+        </div>
+
+        {% endif %}
+
+        <!-- Footer -->
+        <footer>
+
+            <p>
+                Developed by Akhinesh Nair.
+            </p>
+            <p>
+                 &copy; 2026 Universal Unit Converter
+            </p>
+
+        </footer>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
+</body>
+
+</html>

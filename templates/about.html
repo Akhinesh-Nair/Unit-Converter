@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Universal Unit Converter</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>About</h1>
+
+    <p>
+        The Universal Unit Converter is a web application that allows users
+        to convert values between different measurement units quickly and
+        accurately.
+    </p>
+
+    <br>
+
+    <h2>Features</h2>
+
+    <ul>
+        <li>Length Conversion</li>
+        <li>Weight Conversion</li>
+        <li>Temperature Conversion</li>
+        <li>Speed Conversion</li>
+        <li>Time Conversion</li>
+        <li>Area Conversion</li>
+        <li>Volume Conversion</li>
+        <li>Swap Units</li>
+        <li>Responsive Design</li>
+    </ul>
+
+    <br>
+
+    <h2>Technologies Used</h2>
+
+    <ul>
+        <li>Python</li>
+        <li>Flask</li>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <br>
+
+    <a href="{{ url_for('home') }}" class="back-btn">
+        ← Back to Converter
+    </a>
+
+</div>
+
+</body>
+</html>
